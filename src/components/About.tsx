@@ -2,6 +2,7 @@ import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import { Leaf, UtensilsCrossed, Clock } from "lucide-react"
 import { SectionWrapper } from "@/components/SectionWrapper"
+import { asset } from "@/lib/assets"
 
 const stats = [
   { icon: Leaf, label: "Pure Vegetarian", value: "100%" },
@@ -122,7 +123,7 @@ export function About() {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="/images/Day Light/_DSC0037.jpg"
+                src={asset("/images/Day Light/_DSC0037.jpg")}
                 alt="Midori Cafe Interior with MIDORI sign and green chairs"
                 className="w-full h-[500px] object-cover"
                 loading="lazy"

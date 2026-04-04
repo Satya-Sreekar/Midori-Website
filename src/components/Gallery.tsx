@@ -2,6 +2,7 @@ import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import { SectionWrapper } from "@/components/SectionWrapper"
 import { galleryImages } from "@/data/gallery"
+import { asset } from "@/lib/assets"
 
 function GalleryItem({ src, alt, index }: { src: string; alt: string; index: number }) {
   const ref = useRef(null)
@@ -65,7 +66,7 @@ export function Gallery() {
         {/* Masonry Grid */}
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
           {galleryImages.map((img, i) => (
-            <GalleryItem key={i} src={img.src} alt={img.alt} index={i} />
+            <GalleryItem key={i} src={asset(img.src)} alt={img.alt} index={i} />
           ))}
         </div>
       </div>

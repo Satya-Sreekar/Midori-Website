@@ -2,6 +2,7 @@ import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { asset } from "@/lib/assets"
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -26,7 +27,7 @@ export function Hero() {
       {/* Parallax background */}
       <motion.div className="absolute inset-0 z-0" style={{ y: bgY }}>
         <img
-          src="/images/Night Light/_DSC0070.jpg"
+          src={asset("/images/Night Light/_DSC0070.jpg")}
           alt="Midori Cafe Terrace at Night"
           className="w-full h-[120%] object-cover"
         />

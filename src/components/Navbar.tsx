@@ -3,6 +3,7 @@ import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-
 import { Menu, X } from "lucide-react"
 import { navLinks } from "@/data/navigation"
 import { cn } from "@/lib/utils"
+import { asset } from "@/lib/assets"
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -44,7 +45,7 @@ export function Navbar() {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <a href="#home" className="flex items-center">
-              <img src="/images/logo.jpg" alt="Midori" className="h-12 w-24 rounded-lg object-cover" />
+              <img src={asset("/images/logo.jpg")} alt="Midori" className="h-12 w-24 rounded-lg object-cover" />
             </a>
 
             {/* Desktop Navigation */}
@@ -96,7 +97,7 @@ export function Navbar() {
             transition={{ type: "spring", damping: 30, stiffness: 300 }}
           >
             <div className="flex items-center justify-between h-20 px-4">
-              <img src="/images/logo.jpg" alt="Midori" className="h-12 w-24 rounded-lg object-cover" />
+              <img src={asset("/images/logo.jpg")} alt="Midori" className="h-12 w-24 rounded-lg object-cover" />
               <button
                 onClick={() => setIsMobileOpen(false)}
                 className="p-2 rounded-lg hover:bg-muted"

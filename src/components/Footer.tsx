@@ -2,6 +2,7 @@ import { motion } from "framer-motion"
 import { ExternalLink, ArrowUp } from "lucide-react"
 import { Separator } from "@/components/ui/separator"
 import { navLinks } from "@/data/navigation"
+import { asset } from "@/lib/assets"
 
 function InstagramIcon({ className }: { className?: string }) {
   return (
@@ -30,7 +31,7 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center mb-4">
-              <img src="/images/logo.jpg" alt="Midori" className="h-12 w-24 rounded-lg object-cover" />
+              <img src={asset("/images/logo.jpg")} alt="Midori" className="h-12 w-24 rounded-lg object-cover" />
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed mb-6">
               Where Global Cuisine Meets Vegetarian Flavours! Pure veg, no-onion-no-garlic,
