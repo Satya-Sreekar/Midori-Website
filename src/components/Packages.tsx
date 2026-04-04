@@ -10,7 +10,6 @@ import {
   banquetTerms,
   banquetMenu,
   type Package,
-  type PackageTerms,
 } from "@/data/packages"
 
 // ── Tier colors ──────────────────────────────────────────────────────
