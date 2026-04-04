@@ -1,0 +1,89 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  --radius: 0.75rem;
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+}
+
+:root {
+  /* Midori Warm Botanical Theme - derived from logo & interior */
+  --background: 34 25% 92%;          /* #f2ebe1 warm cream */
+  --foreground: 24 40% 12%;          /* #2c1e10 deep brown */
+  --card: 0 0% 100%;                 /* #ffffff white */
+  --card-foreground: 24 40% 12%;     /* deep brown */
+  --primary: 24 42% 16%;             /* #3a2518 dark chocolate brown */
+  --primary-foreground: 34 25% 95%;  /* warm cream */
+  --secondary: 130 15% 42%;          /* #5a7a5a botanical green */
+  --secondary-foreground: 0 0% 100%; /* white */
+  --muted: 30 20% 88%;              /* #e8ddd0 light warm tan */
+  --muted-foreground: 25 10% 44%;   /* #7a6e62 warm grey-brown */
+  --accent: 28 45% 60%;             /* #c9956b warm rattan/terracotta */
+  --accent-foreground: 0 0% 100%;   /* white */
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 30 22% 78%;             /* #d9cbb8 beige border */
+  --input: 30 22% 78%;
+  --ring: 130 15% 42%;              /* botanical green ring */
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: hsl(var(--muted)); }
+::-webkit-scrollbar-thumb { background: hsl(var(--accent)); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--primary)); }
+
+/* Selection color */
+::selection {
+  background: hsl(var(--secondary) / 0.3);
+  color: hsl(var(--foreground));
+}
+
+/* Hide scrollbar for horizontal tab scrolling */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
