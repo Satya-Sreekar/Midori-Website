@@ -34,7 +34,7 @@ export function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-colors duration-500",
           isScrolled
-            ? "bg-card/95 backdrop-blur-lg shadow-sm border-b border-border/50"
+            ? "bg-[#dbd3c8] shadow-sm"
             : "bg-transparent",
         )}
         initial={{ y: -100 }}
