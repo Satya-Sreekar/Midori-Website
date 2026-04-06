@@ -122,7 +122,7 @@ export function Contact() {
           transition={{ delay: 0.6 }}
         >
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.2345311745094!2d78.48388647637346!3d17.400528883488995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99c2e0869c6d%3A0x2c1d1812df61288c!2sMIDORI%20-%20Vegetarian%20Cafe%2C%20Restaurant%20%26%20Banquet!5e0!3m2!1sen!2sus!4v1775336932151!5m2!1sen!2sus"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.234531174511!2d78.48388647516522!3d17.40052888348891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99c2e0869c6d%3A0x2c1d1812df61288c!2sMIDORI%20-%20Vegetarian%20Cafe%2C%20Restaurant%20%26%20Banquet!5e0!3m2!1sen!2sin!4v1775498537135!5m2!1sen!2sin"
             width="100%"
             height="300"
             style={{ border: 0 }}
