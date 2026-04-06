@@ -29,15 +29,15 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand */}
-          <div>
-            <div className="flex items-center mb-4">
-              <img src={asset("/images/logo.jpg")} alt="Midori" className="h-12 w-24 rounded-lg object-cover" />
+          <div className="text-center">
+            <div className="flex items-center justify-center mb-4">
+              <img src={asset("/images/logo.png")} alt="Midori" className="h-20 w-40 rounded-lg object-cover" style={{ filter: 'brightness(0) invert(1) brightness(0.88) sepia(0.2)' }} />
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed mb-6">
               Where Global Cuisine Meets Vegetarian Flavours! Pure veg, no-onion-no-garlic,
               Jain-friendly dining in Himayath Nagar, Hyderabad.
             </p>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center gap-3">
               {socialLinks.map((social) => (
                 <motion.a
                   key={social.label}

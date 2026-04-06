@@ -45,7 +45,7 @@ export function Navbar() {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <a href="#home" className="flex items-center">
-              <img src={asset("/images/logo.jpg")} alt="Midori" className="h-12 w-24 rounded-lg object-cover" />
+              <img src={asset("/images/logo.png")} alt="Midori" className={cn("h-12 w-24 rounded-lg object-cover transition-all duration-500", !isScrolled && "brightness-0 invert")} />
             </a>
 
             {/* Desktop Navigation */}
@@ -97,7 +97,7 @@ export function Navbar() {
             transition={{ type: "spring", damping: 30, stiffness: 300 }}
           >
             <div className="flex items-center justify-between h-20 px-4">
-              <img src={asset("/images/logo.jpg")} alt="Midori" className="h-12 w-24 rounded-lg object-cover" />
+              <img src={asset("/images/logo.png")} alt="Midori" className="h-12 w-24 rounded-lg object-cover" />
               <button
                 onClick={() => setIsMobileOpen(false)}
                 className="p-2 rounded-lg hover:bg-muted"

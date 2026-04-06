@@ -57,7 +57,7 @@ export function Hero() {
           animate="visible"
           className="font-heading text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-white mb-4 tracking-tight"
         >
-          MIDORI
+          MIDOR<span className="inline-flex flex-col items-center leading-none text-[0.75em] align-top relative top-[0.075em]"><span>I</span><span className="w-[0.15em] h-[0.15em] bg-current rounded-full -mt-[0.05em]"></span></span>
         </motion.h1>
 
         {/* Tagline */}
