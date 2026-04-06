@@ -57,13 +57,6 @@ export function MenuSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div ref={ref} className="text-center mb-14">
-          {/* <motion.span
-            className="inline-block text-sm font-medium text-accent tracking-widest uppercase mb-4"
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-          >
-            100% Vegetarian &middot; No Onion &middot; No Garlic Options
-          </motion.span> */}
           <motion.h2
             className="font-heading text-4xl md:text-5xl font-bold text-primary mb-4"
             initial={{ opacity: 0, y: 20 }}
@@ -78,7 +71,7 @@ export function MenuSection() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.15 }}
           >
-            Every dish is crafted with care for vegetarian diners who love global flavours. Jain-friendly & Sattvic options available.
+            Every dish is crafted with care for vegetarian diners who love global flavours.
           </motion.p>
           <motion.div
             className="w-16 h-1 bg-accent rounded-full mx-auto mt-4"

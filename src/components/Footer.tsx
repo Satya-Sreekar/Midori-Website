@@ -34,8 +34,7 @@ export function Footer() {
               <img src={asset("/images/logo.png")} alt="Midori" className="h-20 w-40 rounded-lg object-cover" style={{ filter: 'brightness(0) invert(1) brightness(0.88) sepia(0.2)' }} />
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed mb-6">
-              Where Global Cuisine Meets Vegetarian Flavours! Pure veg, no-onion-no-garlic,
-              Jain-friendly dining in Himayath Nagar, Hyderabad.
+              Where Global Cuisine Meets Vegetarian Flavours! Pure veg dining in Himayath Nagar, Hyderabad.
             </p>
             <div className="flex items-center justify-center gap-3">
               {socialLinks.map((social) => (

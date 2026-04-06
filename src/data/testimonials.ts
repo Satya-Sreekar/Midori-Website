@@ -36,7 +36,7 @@ export const testimonials: Testimonial[] = [
     id: "t4",
     name: "Curly Tales",
     rating: 5,
-    text: "If you're looking for a calm and cosy place to enjoy fresh, wholesome vegetarian food, look no further than Midori in Himayatnagar. This charming new café is all about bringing delicious vegetarian food to your plate, without using onion or garlic.",
+    text: "If you're looking for a calm and cosy place to enjoy fresh, wholesome vegetarian food, look no further than Midori in Himayatnagar. This charming new café is all about bringing delicious vegetarian food to your plate.",
     date: "July 2025",
     source: "Press",
   },
