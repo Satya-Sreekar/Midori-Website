@@ -59,22 +59,22 @@ export function KittyPartyPage() {
           {/* Categories */}
           <div className="p-6 space-y-4">
             {kittyPartyPackage.categories.map((cat) => (
-              <div key={cat.name} className="border-b border-border/40 pb-4 last:border-0 last:pb-0">
+              <div key={cat.name} className="border-b border-accent/15 pb-4 last:border-0 last:pb-0">
                 <div className="flex items-center justify-between mb-2">
                   <h4 className="font-heading text-lg font-semibold text-primary">
                     {cat.name}
                   </h4>
-                  <span className="text-xs font-medium text-accent bg-accent/10 rounded-full px-3 py-1">
+                  <span className="text-xs font-medium text-[#5D381E] bg-[#CE995F]/15 rounded-full px-3 py-1">
                     {cat.selection}
                   </span>
                 </div>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-x-4 gap-y-1.5">
                   {cat.items.map((item) => (
                     <span
                       key={item}
                       className="inline-flex items-center gap-1.5 text-sm text-muted-foreground"
                     >
-                      <Check className="w-3.5 h-3.5 text-secondary flex-shrink-0" />
+                      <Check className="w-3.5 h-3.5 text-[#516857] flex-shrink-0" />
                       {item}
                     </span>
                   ))}

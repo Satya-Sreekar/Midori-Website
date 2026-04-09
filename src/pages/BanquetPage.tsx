@@ -12,21 +12,21 @@ import {
 
 const tierStyles = {
   silver: {
-    badge: "bg-gray-200 text-gray-700",
-    border: "border-gray-300",
-    highlight: "text-gray-600",
+    badge: "bg-[#D8D1C6] text-[#413029]",
+    border: "border-[#D8D1C6]",
+    highlight: "text-[#5D381E]",
     icon: Medal,
   },
   gold: {
-    badge: "bg-yellow-100 text-yellow-700",
-    border: "border-yellow-400",
-    highlight: "text-yellow-600",
+    badge: "bg-[#CE995F]/20 text-[#5D381E]",
+    border: "border-[#CE995F]",
+    highlight: "text-[#CE995F]",
     icon: Award,
   },
   platinum: {
-    badge: "bg-blue-50 text-blue-700",
-    border: "border-blue-400",
-    highlight: "text-blue-600",
+    badge: "bg-[#516857]/15 text-[#436831]",
+    border: "border-[#516857]",
+    highlight: "text-[#516857]",
     icon: Crown,
   },
 }
@@ -55,7 +55,7 @@ function BanquetTierCard({
       )}
     >
       {isPopular && (
-        <div className="absolute top-0 right-0 bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-bl-xl">
+        <div className="absolute top-0 right-0 bg-accent text-white text-xs font-bold px-3 py-1 rounded-bl-xl">
           Popular
         </div>
       )}
@@ -177,16 +177,19 @@ export function BanquetPage() {
 
         {/* Full Menu */}
         <div className="mt-16 max-w-5xl mx-auto">
-          <h2 className="font-heading text-2xl font-bold text-primary mb-8 text-center">
-            Full Banquet Menu
-          </h2>
+          <div className="text-center mb-10">
+            <h2 className="font-heading text-2xl font-bold text-primary mb-2">
+              Full Banquet Menu
+            </h2>
+            <div className="w-12 h-0.5 bg-accent rounded-full mx-auto" />
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {Object.entries(banquetMenu).map(([category, items]) => (
               <div
                 key={category}
-                className="bg-card rounded-xl border border-border/50 p-5"
+                className="bg-card rounded-xl border border-border/50 p-5 hover:border-accent/30 transition-colors"
               >
-                <h4 className="font-heading text-base font-semibold text-primary mb-3 border-b border-border/40 pb-2">
+                <h4 className="font-heading text-base font-semibold text-primary mb-3 border-b border-accent/20 pb-2">
                   {category}
                 </h4>
                 <ul className="space-y-1.5">
