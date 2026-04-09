@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion"
 import { Menu, X } from "lucide-react"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { navLinks } from "@/data/navigation"
 import { cn } from "@/lib/utils"
 import { asset } from "@/lib/assets"
@@ -10,10 +10,14 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileOpen, setIsMobileOpen] = useState(false)
   const { scrollY } = useScroll()
+  const location = useLocation()
+  const isSubPage = location.pathname !== "/"
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 50)
   })
+
+  const showDark = isScrolled || isSubPage
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -26,7 +30,7 @@ export function Navbar() {
       <motion.nav
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-colors duration-500",
-          isScrolled
+          showDark
             ? "bg-[#D8D1C6] shadow-sm"
             : "bg-transparent",
         )}
@@ -38,7 +42,7 @@ export function Navbar() {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center">
-              <img src={asset("/images/logo.png")} alt="Midori" className={cn("h-14 w-auto transition-all duration-500", !isScrolled && "brightness-0 invert")} />
+              <img src={asset("/images/logo.png")} alt="Midori" className={cn("h-14 w-auto transition-all duration-500", !showDark && "brightness-0 invert")} />
             </Link>
 
             {/* Desktop Navigation */}
@@ -50,7 +54,7 @@ export function Navbar() {
                     to={link.href}
                     className={cn(
                       "px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 hover:bg-accent/15",
-                      isScrolled
+                      showDark
                         ? "text-foreground hover:text-accent"
                         : "text-white/90 hover:text-white hover:bg-white/10",
                     )}
@@ -63,7 +67,7 @@ export function Navbar() {
                     href={link.href}
                     className={cn(
                       "px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 hover:bg-accent/15",
-                      isScrolled
+                      showDark
                         ? "text-foreground hover:text-accent"
                         : "text-white/90 hover:text-white hover:bg-white/10",
                     )}
@@ -88,7 +92,7 @@ export function Navbar() {
               onClick={() => setIsMobileOpen(true)}
               aria-label="Open menu"
             >
-              <Menu className={cn("w-6 h-6", isScrolled ? "text-foreground" : "text-white")} />
+              <Menu className={cn("w-6 h-6", showDark ? "text-foreground" : "text-white")} />
             </button>
           </div>
         </div>
