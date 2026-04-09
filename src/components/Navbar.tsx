@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { Link } from "react-router-dom"
@@ -8,9 +8,7 @@ import { asset } from "@/lib/assets"
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isVisible, setIsVisible] = useState(true)
   const [isMobileOpen, setIsMobileOpen] = useState(false)
-  const lastScrollY = useRef(0)
   const { scrollY } = useScroll()
 
   useMotionValueEvent(scrollY, "change", (latest) => {

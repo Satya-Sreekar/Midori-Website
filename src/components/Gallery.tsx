@@ -69,7 +69,7 @@ export function Gallery() {
             <div
               key={rowIndex}
               className={`grid gap-4 ${
-                row[0].orientation === "portrait"
+                row[0]?.orientation === "portrait"
                   ? "grid-cols-1 sm:grid-cols-3"
                   : "grid-cols-1 sm:grid-cols-2"
               }`}
