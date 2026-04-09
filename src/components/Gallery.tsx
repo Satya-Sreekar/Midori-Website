@@ -11,7 +11,7 @@ function GalleryItem({ src, alt, index }: { src: string; alt: string; index: num
   return (
     <motion.div
       ref={ref}
-      className="group relative overflow-hidden rounded-xl cursor-pointer break-inside-avoid mb-4"
+      className="group relative overflow-hidden rounded-xl cursor-pointer"
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.08 }}
@@ -20,7 +20,7 @@ function GalleryItem({ src, alt, index }: { src: string; alt: string; index: num
       <img
         src={src}
         alt={alt}
-        className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         loading="lazy"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -63,10 +63,26 @@ export function Gallery() {
           />
         </div>
 
-        {/* Masonry Grid */}
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
-          {galleryImages.map((img, i) => (
-            <GalleryItem key={i} src={asset(img.src)} alt={img.alt} index={i} />
+        {/* Structured Grid — alternating rows of portrait & landscape */}
+        <div className="flex flex-col gap-4">
+          {galleryImages.map((row, rowIndex) => (
+            <div
+              key={rowIndex}
+              className={`grid gap-4 ${
+                row[0].orientation === "portrait"
+                  ? "grid-cols-1 sm:grid-cols-3"
+                  : "grid-cols-1 sm:grid-cols-2"
+              }`}
+            >
+              {row.map((img, i) => (
+                <GalleryItem
+                  key={`${rowIndex}-${i}`}
+                  src={asset(img.src)}
+                  alt={img.alt}
+                  index={rowIndex * 3 + i}
+                />
+              ))}
+            </div>
           ))}
         </div>
       </div>

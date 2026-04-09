@@ -7,7 +7,7 @@ import { asset } from "@/lib/assets"
 const stats = [
   { icon: Leaf, label: "Pure Vegetarian", value: "100%" },
   { icon: UtensilsCrossed, label: "Global Dishes", value: "70+" },
-  { icon: Clock, label: "Est.", value: "June 2025" },
+  { icon: Clock, label: "Est.", value: "2025" },
 ]
 
 export function About() {

@@ -26,83 +26,57 @@ export function Footer() {
 
   return (
     <footer className="bg-primary text-primary-foreground">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {/* Brand */}
-          <div className="text-center">
-            <div className="flex items-center justify-center mb-4">
-              <img src={asset("/images/logo.png")} alt="Midori" className="h-20 w-40 rounded-lg object-cover" style={{ filter: 'brightness(0) invert(1) brightness(0.88) sepia(0.2)' }} />
-            </div>
-            <p className="text-primary-foreground/70 text-sm leading-relaxed mb-6">
-              Where Global Cuisine Meets Vegetarian Flavours! Pure veg dining in Himayath Nagar, Hyderabad.
-            </p>
-            <div className="flex items-center justify-center gap-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
+          {/* Brand + Socials */}
+          <div className="flex items-center gap-5">
+            <img src={asset("/images/logo.png")} alt="Midori" className="h-14 w-auto" style={{ filter: 'brightness(0) invert(1) brightness(0.88) sepia(0.2)' }} />
+            <div className="flex items-center gap-2.5">
               {socialLinks.map((social) => (
-                <motion.a
+                <a
                   key={social.label}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent transition-colors"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
+                  className="w-9 h-9 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent transition-colors"
                 >
                   <social.icon className="w-4 h-4" />
-                </motion.a>
+                </a>
               ))}
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-heading text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2.5">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-primary-foreground/70 hover:text-accent transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Quick Links - inline */}
+          <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm text-primary-foreground/70 hover:text-accent transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
 
-          {/* Hours & Location */}
-          <div>
-            <h3 className="font-heading text-lg font-semibold mb-4">Visit Us</h3>
-            <div className="space-y-3 text-sm text-primary-foreground/70">
-              <p>5th Floor, Hari Om Arjuna Tower</p>
-              <p>Ashok Nagar Road, Himayath Nagar</p>
-              <p>Hyderabad, Telangana 500020</p>
-              <p className="pt-2">+91 63090 51237</p>
-              <div className="pt-2">
-                <p className="font-medium text-primary-foreground mb-1">Opening Hours</p>
-                <p>Monday - Sunday</p>
-                <p>12:00 PM - 11:00 PM</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <Separator className="my-8 bg-primary-foreground/15" />
-
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-primary-foreground/50">
-            &copy; {new Date().getFullYear()} Midori Cafe & Restaurant. All rights reserved.
-          </p>
+          {/* Back to top */}
           <motion.button
             onClick={scrollToTop}
-            className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent transition-colors"
+            className="w-9 h-9 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent transition-colors"
             whileHover={{ scale: 1.1, y: -2 }}
             whileTap={{ scale: 0.95 }}
             aria-label="Back to top"
           >
             <ArrowUp className="w-4 h-4" />
           </motion.button>
+        </div>
+
+        <Separator className="my-6 bg-primary-foreground/15" />
+
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-primary-foreground/50">
+          <p>&copy; {new Date().getFullYear()} Midori Cafe & Restaurant. All rights reserved.</p>
+          <p>5th Floor, Hari Om Arjuna Tower, Himayath Nagar, Hyderabad &middot; +91 63090 51237</p>
         </div>
       </div>
     </footer>

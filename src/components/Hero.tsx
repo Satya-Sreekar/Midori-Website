@@ -1,6 +1,6 @@
 import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { ChevronDown } from "lucide-react"
+import { ChevronDown, Leaf } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { asset } from "@/lib/assets"
 
@@ -36,29 +36,27 @@ export function Hero() {
 
       {/* Content */}
       <motion.div className="relative z-10 text-center px-4 max-w-4xl mx-auto" style={{ opacity }}>
-        {/* Badge */}
-        <motion.div
-          custom={0}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/30 bg-white/10 backdrop-blur-sm mb-8"
-        >
-          <span className="text-sm font-medium text-white tracking-widest uppercase">
-            Pure Vegetarian
-          </span>
-        </motion.div>
-
-        {/* Logo / Title */}
-        <motion.h1
-          custom={1}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="font-heading text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-white mb-4 tracking-tight"
-        >
-          MIDOR<span className="inline-flex flex-col items-center leading-none text-[0.75em] align-top relative top-[0.075em]"><span>I</span><span className="w-[0.15em] h-[0.15em] bg-current rounded-full -mt-[0.05em]"></span></span>
-        </motion.h1>
+        {/* Logo with leaf */}
+        <div className="relative inline-block mb-4">
+          <motion.img
+            custom={1}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            src={asset("/images/logo.png")}
+            alt="Midori Cafe & Restaurant"
+            className="h-24 sm:h-32 md:h-40 lg:h-48 w-auto brightness-0 invert"
+          />
+          <motion.div
+            custom={0}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            className="absolute top-0 right-0 -translate-y-full translate-x-full w-8 h-8 sm:w-10 sm:h-10 rounded-lg border border-white/30 bg-white/10 backdrop-blur-sm flex items-center justify-center"
+          >
+            <Leaf className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 fill-green-500" />
+          </motion.div>
+        </div>
 
         {/* Tagline */}
         <motion.p
@@ -69,16 +67,6 @@ export function Hero() {
           className="font-heading text-xl sm:text-2xl md:text-3xl text-white/90 italic mb-3"
         >
           Where Global Cuisine Meets Vegetarian Flavours!
-        </motion.p>
-
-        <motion.p
-          custom={3}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="text-base text-white/70 mb-10 font-body"
-        >
-          Korean &middot; Thai &middot; Mediterranean &middot; Italian &middot; North Indian
         </motion.p>
 
         {/* CTA Buttons */}

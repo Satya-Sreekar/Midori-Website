@@ -1,11 +1,12 @@
 import { useState, useRef } from "react"
 import { motion, AnimatePresence, useInView } from "framer-motion"
-import { Star } from "lucide-react"
+import { Star, UtensilsCrossed, Coffee } from "lucide-react"
 import { SectionWrapper } from "@/components/SectionWrapper"
 import { menuItems, categories, type MenuItem } from "@/data/menu"
+import { beverageItems, beverageCategories, type BeverageItem } from "@/data/beverages"
 import { cn } from "@/lib/utils"
 
-function MenuCard({ item, index }: { item: MenuItem; index: number }) {
+function MenuCard({ item, index }: { item: MenuItem | BeverageItem; index: number }) {
   return (
     <motion.div
       layout
@@ -47,10 +48,21 @@ function MenuCard({ item, index }: { item: MenuItem; index: number }) {
 }
 
 export function MenuSection() {
-  const [activeCategory, setActiveCategory] = useState<string>("continental")
+  const [menuType, setMenuType] = useState<"food" | "beverage">("food")
+  const [activeCategory, setActiveCategory] = useState<string>("salads-soups")
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
-  const filtered = menuItems.filter((item) => item.category === activeCategory)
+
+  const currentCategories = menuType === "food" ? categories : beverageCategories
+  const currentItems = menuType === "food" ? menuItems : beverageItems
+  const filtered = currentItems
+    .filter((item) => item.category === activeCategory)
+    .sort((a, b) => (b.isPopular ? 1 : 0) - (a.isPopular ? 1 : 0))
+
+  const handleMenuTypeChange = (type: "food" | "beverage") => {
+    setMenuType(type)
+    setActiveCategory(type === "food" ? "salads-soups" : "hot-brews")
+  }
 
   return (
     <SectionWrapper id="menu">
@@ -81,10 +93,52 @@ export function MenuSection() {
           />
         </div>
 
-        {/* Category Tabs - horizontally scrollable */}
+        {/* Food / Beverage Tabs */}
+        <div className="flex justify-center gap-2 mb-8">
+          <button
+            onClick={() => handleMenuTypeChange("food")}
+            className={cn(
+              "relative px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 flex items-center gap-2",
+              menuType === "food"
+                ? "text-white"
+                : "text-muted-foreground hover:text-foreground hover:bg-muted",
+            )}
+          >
+            {menuType === "food" && (
+              <motion.div
+                layoutId="menuTypeTab"
+                className="absolute inset-0 bg-primary rounded-full"
+                transition={{ type: "spring", stiffness: 400, damping: 30 }}
+              />
+            )}
+            <UtensilsCrossed className="w-4 h-4 relative z-10" />
+            <span className="relative z-10">Food Menu</span>
+          </button>
+          <button
+            onClick={() => handleMenuTypeChange("beverage")}
+            className={cn(
+              "relative px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 flex items-center gap-2",
+              menuType === "beverage"
+                ? "text-white"
+                : "text-muted-foreground hover:text-foreground hover:bg-muted",
+            )}
+          >
+            {menuType === "beverage" && (
+              <motion.div
+                layoutId="menuTypeTab"
+                className="absolute inset-0 bg-primary rounded-full"
+                transition={{ type: "spring", stiffness: 400, damping: 30 }}
+              />
+            )}
+            <Coffee className="w-4 h-4 relative z-10" />
+            <span className="relative z-10">Beverage Menu</span>
+          </button>
+        </div>
+
+        {/* Category Tabs */}
         <div className="relative mb-12">
           <div className="flex flex-wrap justify-center gap-2">
-            {categories.map((cat) => (
+            {currentCategories.map((cat) => (
               <button
                 key={cat.key}
                 onClick={() => setActiveCategory(cat.key)}

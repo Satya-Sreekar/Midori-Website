@@ -4,14 +4,16 @@
       "WebFetch(domain:www.zomato.com)",
       "Bash(npm --version)",
       "Bash(mkdir -p temp_imgs)",
-      "Bash(mv logo.jpg image.jpg temp_imgs/)",
+      "Bash(mv logo.png image.jpg temp_imgs/)",
       "Bash(npm create:*)",
-      "Bash(mv temp_imgs/logo.jpg temp_imgs/image.jpg .)",
+      "Bash(mv temp_imgs/logo.png temp_imgs/image.jpg .)",
       "Bash(rmdir temp_imgs)",
       "Bash(mkdir -p public/images src/components/ui src/lib src/data src/hooks)",
-      "Bash(cp logo.jpg public/images/)",
+      "Bash(cp logo.png public/images/)",
       "Bash(cp image.jpg public/images/)",
-      "Bash(npm i:*)"
+      "Bash(npm i:*)",
+      "Bash(npx @anthropic-ai/claude-code-mcp --help)",
+      "Bash(node -e ':*)"
     ]
   }
 }
