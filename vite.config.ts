@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 
 export default defineConfig({
-  base: process.env.BASE_URL || '/',
+  base: '/Midori-Website/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
