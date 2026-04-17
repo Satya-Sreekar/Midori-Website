@@ -1,6 +1,6 @@
 import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { ChevronDown, Leaf } from "lucide-react"
+import { ChevronDown, Clock, Leaf, MapPin, Navigation } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { asset } from "@/lib/assets"
 
@@ -37,7 +37,16 @@ export function Hero() {
       {/* Content */}
       <motion.div className="relative z-10 text-center px-4 max-w-4xl mx-auto" style={{ opacity }}>
         {/* Logo with leaf */}
-        <div className="relative inline-block mb-4">
+        <div className="inline-flex flex-col items-end mb-4">
+          <motion.div
+            custom={0}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            className="mb-2 w-7 h-7 sm:w-9 sm:h-9 rounded-lg border border-white/30 bg-white/10 backdrop-blur-sm flex items-center justify-center"
+          >
+            <Leaf className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500 fill-green-500" />
+          </motion.div>
           <motion.img
             custom={1}
             variants={fadeUp}
@@ -45,17 +54,8 @@ export function Hero() {
             animate="visible"
             src={asset("/images/logo.png")}
             alt="Midori Cafe & Restaurant"
-            className="h-24 sm:h-32 md:h-40 lg:h-48 w-auto brightness-0 invert"
+            className="h-28 sm:h-36 md:h-44 lg:h-48 w-auto brightness-0 invert"
           />
-          <motion.div
-            custom={0}
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            className="absolute top-0 right-0 -translate-y-full translate-x-full w-8 h-8 sm:w-10 sm:h-10 rounded-lg border border-white/30 bg-white/10 backdrop-blur-sm flex items-center justify-center"
-          >
-            <Leaf className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 fill-green-500" />
-          </motion.div>
         </div>
 
         {/* Tagline */}
@@ -64,7 +64,7 @@ export function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          className="font-heading text-xl sm:text-2xl md:text-3xl text-white/90 italic mb-3"
+          className="font-heading text-2xl sm:text-3xl md:text-3xl text-white/90 italic mb-6"
         >
           Where Global Cuisine Meets Vegetarian Flavours!
         </motion.p>
@@ -75,25 +75,64 @@ export function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="w-full max-w-xs sm:max-w-none mx-auto space-y-3 sm:space-y-0 sm:flex sm:flex-row sm:justify-center sm:gap-4"
         >
           <Button
             size="lg"
-            className="bg-accent hover:bg-accent/90 text-white px-8 py-6 text-base rounded-full shadow-lg"
+            className="bg-accent hover:bg-accent/90 text-white px-8 py-5 sm:py-6 text-base rounded-full shadow-lg w-full sm:w-auto"
             onClick={() => document.getElementById("menu")?.scrollIntoView({ behavior: "smooth" })}
           >
             Explore Menu
           </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="border-2 border-white/80 bg-white/20 text-white hover:bg-white hover:text-black px-8 py-6 text-base rounded-full backdrop-blur-md shadow-lg"
-            asChild
-          >
-            <a href="https://wa.me/916309051237" target="_blank" rel="noopener noreferrer">
-              Enquire Now
-            </a>
-          </Button>
+          <div className="grid grid-cols-2 gap-3 sm:contents">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-2 border-white/80 bg-white/20 text-white hover:bg-white hover:text-black px-4 sm:px-8 py-5 sm:py-6 text-base rounded-full backdrop-blur-md shadow-lg w-full sm:w-auto"
+              asChild
+            >
+              <a href="https://wa.me/916309051237" target="_blank" rel="noopener noreferrer">
+                Enquire Now
+              </a>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-2 border-white/80 bg-white/20 text-white hover:bg-white hover:text-black px-4 sm:px-8 py-5 sm:py-6 text-base rounded-full backdrop-blur-md shadow-lg w-full sm:w-auto"
+              asChild
+            >
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=17.40065,78.48672"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Navigation className="w-4 h-4 mr-1.5" />
+                Visit Now
+              </a>
+            </Button>
+          </div>
+        </motion.div>
+
+        {/* Info strip */}
+        <motion.div
+          custom={5}
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          className="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs sm:text-sm text-white/85"
+        >
+          <span className="flex items-center gap-1.5">
+            <Leaf className="w-3.5 h-3.5 text-green-400 fill-green-400" />
+            100% Vegetarian
+          </span>
+          <span className="flex items-center gap-1.5">
+            <Clock className="w-3.5 h-3.5" />
+            Open till 11 PM
+          </span>
+          <span className="flex items-center gap-1.5">
+            <MapPin className="w-3.5 h-3.5" />
+            Himayat Nagar
+          </span>
         </motion.div>
       </motion.div>
 
