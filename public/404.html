@@ -6,7 +6,7 @@
     <script>
       // Single Page App redirect for GitHub Pages
       // Converts the path into a query string and redirects to index.html
-      var pathSegmentsToKeep = 1; // keep /Midori-Website/
+      var pathSegmentsToKeep = 0; // custom domain serves at root
       var l = window.location;
       l.replace(
         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +

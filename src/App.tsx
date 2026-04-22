@@ -27,7 +27,7 @@ function HomePage() {
 
 export default function App() {
   return (
-    <BrowserRouter basename="/Midori-Website">
+    <BrowserRouter>
       <Navbar />
       <main>
         <Routes>
