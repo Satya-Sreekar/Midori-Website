@@ -19,7 +19,7 @@ export function Packages() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1 }}
           >
-            Event Packages
+            Packages For Celebrations
           </motion.h2>
           <motion.p
             className="text-muted-foreground text-base max-w-2xl mx-auto mb-2"
@@ -27,8 +27,7 @@ export function Packages() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.15 }}
           >
-            Celebrate with Midori — curated vegetarian menus for kitty parties,
-            birthdays, corporate events, and private gatherings.
+            Host your celebrations, kitty gatherings, or workshops with us. Our spaces adapt to every occasion with thoughtfully curated menus and seamless hospitality.
           </motion.p>
           <motion.div
             className="w-16 h-1 bg-accent rounded-full mx-auto mt-4"
@@ -39,16 +38,17 @@ export function Packages() {
         </div>
 
         {/* Package Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 auto-rows-fr max-w-3xl mx-auto">
           {/* Banquet */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.3 }}
+            className="h-full"
           >
             <Link
               to="/banquet"
-              className="group block bg-card rounded-2xl border border-border/50 shadow-sm p-8 hover:shadow-md hover:border-accent/30 transition-all duration-300"
+              className="group h-full flex flex-col bg-card rounded-2xl border border-border/50 shadow-sm p-8 hover:shadow-md hover:border-accent/30 transition-all duration-300"
             >
               <div className="w-14 h-14 rounded-xl bg-accent/15 flex items-center justify-center mb-5">
                 <Users className="w-6 h-6 text-accent" />
@@ -56,10 +56,10 @@ export function Packages() {
               <h3 className="font-heading text-2xl font-bold text-primary mb-2">
                 Banquet Packages
               </h3>
-              <p className="text-muted-foreground text-sm mb-4">
+              <p className="text-muted-foreground text-sm mb-4 flex-1">
                 Silver, Gold & Platinum tiers for 50+ guests. Corporate events, birthdays, and private gatherings.
               </p>
-              <span className="inline-flex items-center gap-1.5 text-sm font-medium text-accent group-hover:gap-2.5 transition-all">
+              <span className="inline-flex items-center gap-1.5 text-sm font-medium text-accent group-hover:gap-2.5 transition-all mt-auto">
                 View Packages <ArrowRight className="w-4 h-4" />
               </span>
             </Link>
@@ -70,10 +70,11 @@ export function Packages() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.4 }}
+            className="h-full"
           >
             <Link
               to="/kitty-party"
-              className="group block bg-card rounded-2xl border border-border/50 shadow-sm p-8 hover:shadow-md hover:border-accent/30 transition-all duration-300"
+              className="group h-full flex flex-col bg-card rounded-2xl border border-border/50 shadow-sm p-8 hover:shadow-md hover:border-accent/30 transition-all duration-300"
             >
               <div className="w-14 h-14 rounded-xl bg-accent/15 flex items-center justify-center mb-5">
                 <PartyPopper className="w-6 h-6 text-accent" />
@@ -81,10 +82,10 @@ export function Packages() {
               <h3 className="font-heading text-2xl font-bold text-primary mb-2">
                 Kitty Party
               </h3>
-              <p className="text-muted-foreground text-sm mb-4">
+              <p className="text-muted-foreground text-sm mb-4 flex-1">
                 ₹699 + taxes per head. Perfect for groups of 10+. Full course vegetarian feast.
               </p>
-              <span className="inline-flex items-center gap-1.5 text-sm font-medium text-accent group-hover:gap-2.5 transition-all">
+              <span className="inline-flex items-center gap-1.5 text-sm font-medium text-accent group-hover:gap-2.5 transition-all mt-auto">
                 View Package <ArrowRight className="w-4 h-4" />
               </span>
             </Link>

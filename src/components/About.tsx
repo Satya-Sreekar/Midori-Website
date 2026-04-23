@@ -60,10 +60,19 @@ export function About() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              What began as a spontaneous idea soon grew roots, fueled by a shared love for food
-              and the joy of serving it with soul. The one thing they all craved but could never find,
-              a place in the city that served scrumptious, pure vegetarian food from around the world.
-              What began as simple conversations slowly grew into something much bigger.
+              There wasn&rsquo;t a grand plan behind Midori, just a quiet thought that kept coming back:
+              why is it so hard to find truly satisfying vegetarian food without compromise?
+            </motion.p>
+
+            <motion.p
+              className="text-muted-foreground text-lg leading-relaxed mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.45 }}
+            >
+              In a city full of options, vegetarian dining often feels limited. We wanted something
+              different &mdash; a pure vegetarian restaurant in Himayatnagar that brings global flavours
+              together with honesty, depth, and intention.
             </motion.p>
 
             <motion.p
@@ -72,19 +81,44 @@ export function About() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              Midori is a celebration of all things vibrant, fresh, and wholeheartedly vegetarian.
-              A space where global cuisine meets under one roof, without compromise. Whether you're
-              craving comfort or discovery, every dish here is crafted to nourish both palate and spirit.
+              Founded in June 2025, Midori is more than just a veg restaurant in Hyderabad. It&rsquo;s a
+              space where vegetarian cuisine is complete, creative, and thoughtfully crafted. From
+              globally inspired dishes to comforting favourites, everything is made to feel balanced
+              and memorable. We also offer Jain-friendly dining options in Hyderabad, so every guest
+              can dine with ease.
             </motion.p>
 
             <motion.p
               className="text-muted-foreground text-lg leading-relaxed mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.55 }}
+            >
+              Behind every plate is a commitment to freshness. From freshly baked breads to handcrafted
+              elements, much of what you taste is made in-house. No ajinomoto. No artificial colours.
+              No shortcuts &mdash; just mindful cooking that lets ingredients shine. It&rsquo;s this approach
+              that places Midori among the best vegetarian restaurants and caf&eacute;s in Hyderabad.
+            </motion.p>
+
+            <motion.p
+              className="text-accent font-heading text-lg font-semibold italic mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              This is where families gather, friends reconnect, couples linger, and every generation
-              finds something to love. Midori isn't just a place to eat, it's a place to belong.
+              But what truly defines Midori is the experience.
+            </motion.p>
+
+            <motion.p
+              className="text-muted-foreground text-lg leading-relaxed mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.65 }}
+            >
+              It&rsquo;s in slow meals, shared laughter, and quiet coffee breaks. A place where families
+              gather, friends reconnect, and workdays pause. Whether you visit as a caf&eacute;, a
+              restaurant, or a banquet space in Himayatnagar, it&rsquo;s designed to feel effortless and
+              welcoming.
             </motion.p>
 
             <motion.p
@@ -93,7 +127,7 @@ export function About() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.7 }}
             >
-              Where the greener side is always the brighter one.
+              Because the best meals aren&rsquo;t just tasted, they&rsquo;re remembered.
             </motion.p>
 
             {/* Stats */}
@@ -101,14 +135,16 @@ export function About() {
               {stats.map((stat, i) => (
                 <motion.div
                   key={stat.label}
-                  className="text-center"
+                  className="flex flex-col items-center text-center"
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.8 + i * 0.1 }}
                 >
-                  <stat.icon className="w-6 h-6 text-secondary mx-auto mb-2" />
-                  <p className="font-heading text-xl font-bold text-primary">{stat.value}</p>
-                  <p className="text-xs text-muted-foreground mt-1">{stat.label}</p>
+                  <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center mb-2">
+                    <stat.icon className="w-5 h-5 text-secondary" />
+                  </div>
+                  <p className="font-heading text-xl font-bold text-primary leading-none">{stat.value}</p>
+                  <p className="text-xs text-muted-foreground mt-1.5">{stat.label}</p>
                 </motion.div>
               ))}
             </div>

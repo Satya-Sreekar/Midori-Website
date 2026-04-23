@@ -3,6 +3,7 @@ import { Navbar } from "@/components/Navbar"
 import { ScrollToTop } from "@/components/ScrollToTop"
 import { Hero } from "@/components/Hero"
 import { About } from "@/components/About"
+import { USPs } from "@/components/USPs"
 import { MenuSection } from "@/components/Menu"
 import { Packages } from "@/components/Packages"
 import { Gallery } from "@/components/Gallery"
@@ -17,6 +18,7 @@ function HomePage() {
     <>
       <Hero />
       <About />
+      <USPs />
       <Gallery />
       <MenuSection />
       <Packages />

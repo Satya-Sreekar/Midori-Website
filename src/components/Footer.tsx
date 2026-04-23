@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import { ExternalLink, ArrowUp } from "lucide-react"
+import { ArrowUp } from "lucide-react"
 import { Link, useLocation } from "react-router-dom"
 import { Separator } from "@/components/ui/separator"
 import { navLinks } from "@/data/navigation"
@@ -15,9 +15,27 @@ function InstagramIcon({ className }: { className?: string }) {
   )
 }
 
+function ZomatoIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.25"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <rect x="2.5" y="2.5" width="19" height="19" rx="4" />
+      <path d="M7.5 8h9l-9 8h9" />
+    </svg>
+  )
+}
+
 const socialLinks = [
   { icon: InstagramIcon, label: "Instagram", href: "https://www.instagram.com/midori.dining/" },
-  { icon: ExternalLink, label: "Zomato", href: "https://www.zomato.com/hyderabad/midori-cafe-and-restaurant-himayath-nagar" },
+  { icon: ZomatoIcon, label: "Zomato", href: "https://www.zomato.com/hyderabad/midori-cafe-and-restaurant-himayath-nagar" },
 ]
 
 export function Footer() {
@@ -91,9 +109,10 @@ export function Footer() {
 
         <Separator className="my-6 bg-primary-foreground/15" />
 
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-primary-foreground/50">
+        <div className="flex flex-col items-center gap-2 text-xs text-primary-foreground/50 text-center">
           <p>&copy; {new Date().getFullYear()} Midori Cafe & Restaurant. All rights reserved.</p>
-          <p>5th Floor, Hari Om Arjuna Tower, Above Max Showroom, Opposite McDonald&apos;s, Himayath Nagar, Hyderabad &middot; +91 63090 51237</p>
+          <p>5th Floor, Hari Om Arjuna Tower, Above Max Showroom, Opposite McDonald&apos;s, Himayath Nagar, Hyderabad</p>
+          <p>+91 63090 51237</p>
         </div>
       </div>
     </footer>

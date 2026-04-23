@@ -118,7 +118,7 @@ export function Hero() {
           </span>
           <span className="flex items-center gap-1.5">
             <Clock className="w-3.5 h-3.5" />
-            Open till 11 PM
+            Open till late
           </span>
           <span className="flex items-center gap-1.5">
             <MapPin className="w-3.5 h-3.5" />
