@@ -43,7 +43,10 @@ export function Navbar() {
             {/* Logo */}
             <Link
               to="/"
-              className="flex items-center"
+              className={cn(
+                "items-center",
+                !showDark ? "hidden md:flex" : "flex",
+              )}
               onClick={() => {
                 if (!isSubPage) {
                   window.scrollTo({ top: 0, behavior: "smooth" })
@@ -94,7 +97,7 @@ export function Navbar() {
 
             {/* Mobile hamburger */}
             <button
-              className="md:hidden p-2 rounded-lg"
+              className="md:hidden ml-auto p-2 rounded-lg"
               onClick={() => setIsMobileOpen(true)}
               aria-label="Open menu"
             >
