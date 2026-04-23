@@ -1,6 +1,6 @@
 import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { ChevronDown, Clock, Leaf, MapPin, Navigation } from "lucide-react"
+import { ChevronDown, Leaf, MapPin, Navigation } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { asset } from "@/lib/assets"
 
@@ -115,10 +115,6 @@ export function Hero() {
           <span className="flex items-center gap-1.5">
             <Leaf className="w-3.5 h-3.5 text-green-400 fill-green-400" />
             100% Vegetarian
-          </span>
-          <span className="flex items-center gap-1.5">
-            <Clock className="w-3.5 h-3.5" />
-            Open till late
           </span>
           <span className="flex items-center gap-1.5">
             <MapPin className="w-3.5 h-3.5" />
