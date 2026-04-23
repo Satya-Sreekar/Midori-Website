@@ -133,13 +133,13 @@ export function MenuSection() {
 
         {/* Category Tabs */}
         <div className="relative mb-12">
-          <div className="flex flex-wrap justify-center gap-2">
+          <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:justify-center">
             {currentCategories.map((cat) => (
               <button
                 key={cat.key}
                 onClick={() => setActiveCategory(cat.key)}
                 className={cn(
-                  "relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 whitespace-nowrap",
+                  "relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 text-center",
                   activeCategory === cat.key
                     ? "text-white"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted",
