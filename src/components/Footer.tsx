@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import { ExternalLink, ArrowUp } from "lucide-react"
+import { Link, useLocation } from "react-router-dom"
 import { Separator } from "@/components/ui/separator"
 import { navLinks } from "@/data/navigation"
 import { asset } from "@/lib/assets"
@@ -20,6 +21,9 @@ const socialLinks = [
 ]
 
 export function Footer() {
+  const location = useLocation()
+  const isSubPage = location.pathname !== "/"
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
@@ -49,15 +53,28 @@ export function Footer() {
 
           {/* Quick Links - inline */}
           <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm text-primary-foreground/70 hover:text-accent transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const className = "text-sm text-primary-foreground/70 hover:text-accent transition-colors"
+              if (link.isRoute) {
+                return (
+                  <Link key={link.href} to={link.href} className={className}>
+                    {link.label}
+                  </Link>
+                )
+              }
+              if (isSubPage) {
+                return (
+                  <Link key={link.href} to={`/${link.href}`} className={className}>
+                    {link.label}
+                  </Link>
+                )
+              }
+              return (
+                <a key={link.href} href={link.href} className={className}>
+                  {link.label}
+                </a>
+              )
+            })}
           </nav>
 
           {/* Back to top */}
@@ -76,7 +93,7 @@ export function Footer() {
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-primary-foreground/50">
           <p>&copy; {new Date().getFullYear()} Midori Cafe & Restaurant. All rights reserved.</p>
-          <p>5th Floor, Hari Om Arjuna Tower, Himayath Nagar, Hyderabad &middot; +91 63090 51237</p>
+          <p>5th Floor, Hari Om Arjuna Tower, Above Max Showroom, Opposite McDonald&apos;s, Himayath Nagar, Hyderabad &middot; +91 63090 51237</p>
         </div>
       </div>
     </footer>

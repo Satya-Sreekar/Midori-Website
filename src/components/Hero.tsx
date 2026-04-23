@@ -36,17 +36,8 @@ export function Hero() {
 
       {/* Content */}
       <motion.div className="relative z-10 text-center px-4 max-w-4xl mx-auto" style={{ opacity }}>
-        {/* Logo with leaf */}
-        <div className="inline-flex flex-col items-end mb-4">
-          <motion.div
-            custom={0}
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            className="mb-2 w-7 h-7 sm:w-9 sm:h-9 rounded-lg border border-white/30 bg-white/10 backdrop-blur-sm flex items-center justify-center"
-          >
-            <Leaf className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500 fill-green-500" />
-          </motion.div>
+        {/* Logo */}
+        <div className="inline-flex mb-4">
           <motion.img
             custom={1}
             variants={fadeUp}

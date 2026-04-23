@@ -41,41 +41,47 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center">
+            <Link
+              to="/"
+              className="flex items-center"
+              onClick={() => {
+                if (!isSubPage) {
+                  window.scrollTo({ top: 0, behavior: "smooth" })
+                }
+              }}
+            >
               <img src={asset("/images/logo.png")} alt="Midori" className={cn("h-14 w-auto transition-all duration-500", !showDark && "brightness-0 invert")} />
             </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-1">
-              {navLinks.map((link) =>
-                link.isRoute ? (
-                  <Link
-                    key={link.href}
-                    to={link.href}
-                    className={cn(
-                      "px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 hover:bg-accent/15",
-                      showDark
-                        ? "text-foreground hover:text-accent"
-                        : "text-white/90 hover:text-white hover:bg-white/10",
-                    )}
-                  >
-                    {link.label}
-                  </Link>
-                ) : (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className={cn(
-                      "px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 hover:bg-accent/15",
-                      showDark
-                        ? "text-foreground hover:text-accent"
-                        : "text-white/90 hover:text-white hover:bg-white/10",
-                    )}
-                  >
+              {navLinks.map((link) => {
+                const className = cn(
+                  "px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 hover:bg-accent/15",
+                  showDark
+                    ? "text-foreground hover:text-accent"
+                    : "text-white/90 hover:text-white hover:bg-white/10",
+                )
+                if (link.isRoute) {
+                  return (
+                    <Link key={link.href} to={link.href} className={className}>
+                      {link.label}
+                    </Link>
+                  )
+                }
+                if (isSubPage) {
+                  return (
+                    <Link key={link.href} to={`/${link.href}`} className={className}>
+                      {link.label}
+                    </Link>
+                  )
+                }
+                return (
+                  <a key={link.href} href={link.href} className={className}>
                     {link.label}
                   </a>
-                ),
-              )}
+                )
+              })}
               <a
                 href="https://wa.me/916309051237"
                 target="_blank"
@@ -120,36 +126,51 @@ export function Navbar() {
             </div>
 
             <nav className="flex flex-col px-6 pt-8">
-              {navLinks.map((link, i) =>
-                link.isRoute ? (
-                  <motion.div
+              {navLinks.map((link, i) => {
+                const itemClass = "block py-4 text-2xl font-heading font-medium text-foreground border-b border-border/50 hover:text-accent transition-colors"
+                const anim = {
+                  initial: { opacity: 0, x: 30 },
+                  animate: { opacity: 1, x: 0 },
+                  transition: { delay: 0.1 + i * 0.06 },
+                }
+                if (link.isRoute) {
+                  return (
+                    <motion.div key={link.href} {...anim}>
+                      <Link
+                        to={link.href}
+                        onClick={() => setIsMobileOpen(false)}
+                        className={itemClass}
+                      >
+                        {link.label}
+                      </Link>
+                    </motion.div>
+                  )
+                }
+                if (isSubPage) {
+                  return (
+                    <motion.div key={link.href} {...anim}>
+                      <Link
+                        to={`/${link.href}`}
+                        onClick={() => setIsMobileOpen(false)}
+                        className={itemClass}
+                      >
+                        {link.label}
+                      </Link>
+                    </motion.div>
+                  )
+                }
+                return (
+                  <motion.a
                     key={link.href}
-                    initial={{ opacity: 0, x: 30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1 + i * 0.06 }}
+                    href={link.href}
+                    onClick={() => setIsMobileOpen(false)}
+                    className={itemClass}
+                    {...anim}
                   >
-                    <Link
-                      to={link.href}
-                      onClick={() => setIsMobileOpen(false)}
-                      className="block py-4 text-2xl font-heading font-medium text-foreground border-b border-border/50 hover:text-accent transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  </motion.div>
-                ) : (
-                <motion.a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsMobileOpen(false)}
-                  className="py-4 text-2xl font-heading font-medium text-foreground border-b border-border/50 hover:text-accent transition-colors"
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 + i * 0.06 }}
-                >
-                  {link.label}
-                </motion.a>
-                ),
-              )}
+                    {link.label}
+                  </motion.a>
+                )
+              })}
               <motion.a
                 href="https://wa.me/916309051237"
                 target="_blank"

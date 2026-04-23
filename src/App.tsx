@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { Navbar } from "@/components/Navbar"
+import { ScrollToTop } from "@/components/ScrollToTop"
 import { Hero } from "@/components/Hero"
 import { About } from "@/components/About"
 import { MenuSection } from "@/components/Menu"
@@ -28,6 +29,7 @@ function HomePage() {
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Navbar />
       <main>
         <Routes>

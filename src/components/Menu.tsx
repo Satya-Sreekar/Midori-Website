@@ -15,34 +15,30 @@ function MenuCard({ item, index }: { item: MenuItem | BeverageItem; index: numbe
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
       whileHover={{ y: -4, transition: { duration: 0.2 } }}
-      className="group bg-card rounded-xl p-5 shadow-sm border border-border/50 hover:shadow-md hover:border-accent/30 transition-all duration-300"
+      className="group h-full flex flex-col bg-card rounded-xl p-5 shadow-sm border border-border/50 hover:shadow-md hover:border-accent/30 transition-all duration-300"
     >
-      <div className="flex items-start justify-between gap-3">
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 mb-2">
-            <div className="w-5 h-5 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0">
-              <div className="w-2.5 h-2.5 rounded-full bg-green-600" />
-            </div>
-            {item.isPopular && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-accent/15 text-accent text-xs font-medium rounded-full">
-                <Star className="w-3 h-3 fill-accent" />
-                Popular
-              </span>
-            )}
+      <div className="flex items-start justify-between gap-3 mb-2">
+        <div className="flex items-center gap-2 min-w-0">
+          <div className="w-5 h-5 border-2 border-green-600 flex items-center justify-center rounded-sm flex-shrink-0">
+            <div className="w-2.5 h-2.5 rounded-full bg-green-600" />
           </div>
-          <h3 className="font-heading text-lg font-semibold text-primary group-hover:text-accent transition-colors">
-            {item.name}
-          </h3>
-          <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
-            {item.description}
-          </p>
+          {item.isPopular && (
+            <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-accent/15 text-accent text-xs font-medium rounded-full">
+              <Star className="w-3 h-3 fill-accent" />
+              Popular
+            </span>
+          )}
         </div>
-        <div className="flex-shrink-0 text-right">
-          <span className="text-base font-semibold text-accent whitespace-nowrap">
-            ₹{item.price}
-          </span>
-        </div>
+        <span className="text-base font-semibold text-accent whitespace-nowrap flex-shrink-0">
+          ₹{item.price}
+        </span>
       </div>
+      <h3 className="font-heading text-lg font-semibold text-primary group-hover:text-accent transition-colors">
+        {item.name}
+      </h3>
+      <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
+        {item.description}
+      </p>
     </motion.div>
   )
 }
@@ -170,7 +166,7 @@ export function MenuSection() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-5xl mx-auto"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4 auto-rows-fr max-w-5xl mx-auto"
           >
             {filtered.map((item, i) => (
               <MenuCard key={item.id} item={item} index={i} />

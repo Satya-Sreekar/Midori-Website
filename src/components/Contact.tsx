@@ -10,6 +10,7 @@ const contactInfo = [
     title: "Visit Us",
     details: [
       "5th Floor, Hari Om Arjuna Tower",
+      "Above Max Showroom, Opposite McDonald's",
       "Ashok Nagar Road, Himayath Nagar",
       "Hyderabad, Telangana 500020",
     ],
