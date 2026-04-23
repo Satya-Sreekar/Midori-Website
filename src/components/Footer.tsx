@@ -20,15 +20,20 @@ function ZomatoIcon({ className }: { className?: string }) {
     <svg
       className={className}
       viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.25"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      fill="currentColor"
       aria-hidden="true"
     >
-      <rect x="2.5" y="2.5" width="19" height="19" rx="4" />
-      <path d="M7.5 8h9l-9 8h9" />
+      <text
+        x="12"
+        y="18.5"
+        textAnchor="middle"
+        fontFamily="Georgia, 'Times New Roman', serif"
+        fontStyle="italic"
+        fontWeight="700"
+        fontSize="22"
+      >
+        z
+      </text>
     </svg>
   )
 }
