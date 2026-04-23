@@ -131,7 +131,7 @@ export function About() {
             </motion.p>
 
             {/* Stats */}
-            <div className="flex flex-wrap items-start justify-center gap-x-10 sm:gap-x-14 gap-y-6">
+            <div className="grid grid-cols-3 gap-6">
               {stats.map((stat, i) => (
                 <motion.div
                   key={stat.label}
