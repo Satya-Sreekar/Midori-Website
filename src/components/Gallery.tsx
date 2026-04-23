@@ -3,15 +3,19 @@ import { motion, useInView } from "framer-motion"
 import { SectionWrapper } from "@/components/SectionWrapper"
 import { galleryImages } from "@/data/gallery"
 import { asset } from "@/lib/assets"
+import { cn } from "@/lib/utils"
 
-function GalleryItem({ src, alt, index }: { src: string; alt: string; index: number }) {
+function GalleryItem({ src, alt, index, orientation }: { src: string; alt: string; index: number; orientation: "portrait" | "landscape" }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
 
   return (
     <motion.div
       ref={ref}
-      className="group relative overflow-hidden rounded-xl cursor-pointer"
+      className={cn(
+        "group relative overflow-hidden rounded-xl cursor-pointer",
+        orientation === "portrait" ? "aspect-[3/4]" : "aspect-[16/10]"
+      )}
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.08 }}
@@ -20,7 +24,7 @@ function GalleryItem({ src, alt, index }: { src: string; alt: string; index: num
       <img
         src={src}
         alt={alt}
-        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         loading="lazy"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -80,6 +84,7 @@ export function Gallery() {
                   src={asset(img.src)}
                   alt={img.alt}
                   index={rowIndex * 3 + i}
+                  orientation={img.orientation}
                 />
               ))}
             </div>
