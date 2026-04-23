@@ -15,32 +15,13 @@ function InstagramIcon({ className }: { className?: string }) {
   )
 }
 
-function ZomatoIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden="true"
-    >
-      <text
-        x="12"
-        y="18.5"
-        textAnchor="middle"
-        fontFamily="Georgia, 'Times New Roman', serif"
-        fontStyle="italic"
-        fontWeight="700"
-        fontSize="22"
-      >
-        z
-      </text>
-    </svg>
-  )
+const zomatoLink = {
+  label: "Zomato",
+  href: "https://www.zomato.com/hyderabad/midori-cafe-and-restaurant-himayath-nagar",
 }
 
 const socialLinks = [
   { icon: InstagramIcon, label: "Instagram", href: "https://www.instagram.com/midori.dining/" },
-  { icon: ZomatoIcon, label: "Zomato", href: "https://www.zomato.com/hyderabad/midori-cafe-and-restaurant-himayath-nagar" },
 ]
 
 export function Footer() {
@@ -71,6 +52,19 @@ export function Footer() {
                   <social.icon className="w-4 h-4" />
                 </a>
               ))}
+              <a
+                href={zomatoLink.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={zomatoLink.label}
+                className="h-9 px-3 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent transition-colors"
+              >
+                <img
+                  src={asset("/images/zomato-2.svg")}
+                  alt="Zomato"
+                  className="h-3.5 w-auto brightness-0 invert"
+                />
+              </a>
             </div>
           </div>
 
