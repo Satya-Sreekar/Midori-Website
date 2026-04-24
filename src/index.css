@@ -2,8 +2,14 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Juana @font-face rules kept here (commented) — restore once Ria provides licensed (non-DEMO) font files.
+@font-face { font-family: 'Juana'; src: url('/Juana/…-light.otf') format('opentype'); font-weight: 300; }
+@font-face { font-family: 'Juana'; src: url('/Juana/…-regular.otf') format('opentype'); font-weight: 400; }
+…etc (see git history for full block)
+*/
+
 @theme {
-  --font-heading: 'Bodoni Moda', Georgia, serif;
+  --font-heading: 'Cormorant Garamond', 'Bodoni Moda', Georgia, serif;
   --font-body: 'Poppins', system-ui, sans-serif;
 
   --radius: 0.75rem;
