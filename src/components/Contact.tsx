@@ -59,24 +59,43 @@ export function Contact() {
           />
         </div>
 
-        {/* Map — first */}
-        <motion.div
-          className="mb-10 rounded-2xl overflow-hidden border border-border/50 shadow-sm"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.3 }}
-        >
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.234531174511!2d78.48388647516522!3d17.40052888348891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99c2e0869c6d%3A0x2c1d1812df61288c!2sMIDORI%20-%20Vegetarian%20Cafe%2C%20Restaurant%20%26%20Banquet!5e0!3m2!1sen!2sin!4v1775498537135!5m2!1sen!2sin"
-            width="100%"
-            height="300"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="Midori Cafe Location"
-          />
-        </motion.div>
+        {/* Building photo + Map */}
+        <div className="mb-10 grid grid-cols-1 md:grid-cols-[1fr_4fr] gap-4">
+          <motion.div
+            className="relative rounded-2xl overflow-hidden border border-border/50 shadow-sm h-[300px] group"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.3 }}
+          >
+            <img
+              src="/images/building.png"
+              alt="Hari Om Arjuna Tower — the building housing Midori on the 5th floor"
+              className="w-full h-full object-cover object-[50%_18%] transition-transform duration-500 group-hover:scale-[1.03]"
+              loading="lazy"
+            />
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-4">
+              <p className="text-white text-xs font-medium tracking-wide uppercase mb-0.5">Spot the Building</p>
+              <p className="text-white/90 text-sm">Hari Om Arjuna Tower · 5th Floor</p>
+            </div>
+          </motion.div>
+          <motion.div
+            className="rounded-2xl overflow-hidden border border-border/50 shadow-sm h-[300px]"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.4 }}
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.234531174511!2d78.48388647516522!3d17.40052888348891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99c2e0869c6d%3A0x2c1d1812df61288c!2sMIDORI%20-%20Vegetarian%20Cafe%2C%20Restaurant%20%26%20Banquet!5e0!3m2!1sen!2sin!4v1775498537135!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Midori Cafe Location"
+            />
+          </motion.div>
+        </div>
 
         {/* 2x2 Grid — Visit, Call, Hours, WhatsApp */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
