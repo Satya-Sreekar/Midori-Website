@@ -84,15 +84,15 @@ export const beverageItems: BeverageItem[] = [
   { id: "it7", name: "Iced Hibiscus Tea", description: "Chilled hibiscus flower tea — tart and beautiful.", price: "245", category: "iced-tea" },
 
   // ── Boba Tea ──
-  { id: "bo1", name: "Choco Hazelnut Boba", description: "Chocolate-hazelnut boba with chewy tapioca pearls.", price: "295", category: "boba-tea" },
-  { id: "bo2", name: "Raspberry Boba", description: "Tangy raspberry boba with tapioca pearls.", price: "285", category: "boba-tea" },
-  { id: "bo3", name: "Blueberry Boba", description: "Sweet blueberry boba with chewy pearls.", price: "285", category: "boba-tea" },
-  { id: "bo4", name: "Bobachinno", description: "A creamy coffee-meets-boba creation.", price: "295", category: "boba-tea" },
-  { id: "bo5", name: "Vanilla Boba", description: "Smooth vanilla boba with tapioca pearls.", price: "275", category: "boba-tea" },
-  { id: "bo6", name: "Strawberry Sensations Boba", description: "Fresh strawberry boba with chewy pearls.", price: "295", category: "boba-tea", isPopular: true },
-  { id: "bo7", name: "Matcha Boba", description: "Earthy matcha boba with tapioca pearls.", price: "295", category: "boba-tea" },
-  { id: "bo8", name: "Biscoff Boba", description: "Caramelized Biscoff boba — rich and indulgent.", price: "315", category: "boba-tea" },
-  { id: "bo9", name: "Mango Boba", description: "Sweet mango boba with chewy tapioca pearls.", price: "295", category: "boba-tea" },
+  { id: "bo1", name: "Choco Hazelnut Boba", description: "Chocolate-hazelnut boba with chewy tapioca pearls.", price: "345", category: "boba-tea" },
+  { id: "bo2", name: "Raspberry Boba", description: "Tangy raspberry boba with tapioca pearls.", price: "335", category: "boba-tea" },
+  { id: "bo3", name: "Blueberry Boba", description: "Sweet blueberry boba with chewy pearls.", price: "335", category: "boba-tea" },
+  { id: "bo4", name: "Bobachinno", description: "A creamy coffee-meets-boba creation.", price: "345", category: "boba-tea" },
+  { id: "bo5", name: "Vanilla Boba", description: "Smooth vanilla boba with tapioca pearls.", price: "325", category: "boba-tea" },
+  { id: "bo6", name: "Strawberry Sensations Boba", description: "Fresh strawberry boba with chewy pearls.", price: "345", category: "boba-tea", isPopular: true },
+  { id: "bo7", name: "Matcha Boba", description: "Earthy matcha boba with tapioca pearls.", price: "345", category: "boba-tea" },
+  { id: "bo8", name: "Biscoff Boba", description: "Caramelized Biscoff boba — rich and indulgent.", price: "365", category: "boba-tea" },
+  { id: "bo9", name: "Mango Boba", description: "Sweet mango boba with chewy tapioca pearls.", price: "345", category: "boba-tea" },
 
   // ── Signature Mojitos ──
   { id: "sm1", name: "Classic Mojito", description: "Fresh mint, lime & soda — the timeless classic.", price: "295", category: "mojitos" },
